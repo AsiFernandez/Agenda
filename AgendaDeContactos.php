@@ -59,7 +59,7 @@
 
 		  		// recorremos el array y mostramos los contactos
 		  	foreach($array_agenda as $nombre=>$email){
-				echo "<th> " . $nombre . "  " . $email . "\n";
+				echo "<th> " . $nombre . "  " . $email . "";
 				echo "</th><br>";
 			}
 
