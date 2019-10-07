@@ -8,7 +8,6 @@
 	<body>
 		<?php
 			//Funciones extra que he utilizado para gestionar la agenda
-
 			function stringtoarray ($string_agenda,&$array_agenda) {
 				//Convierte la agenda de datos (string) en un array asociativo
 				$a=explode (";",$string_agenda);
@@ -18,7 +17,6 @@
 				}
 				return true;
 			}
-
 			function arraytostring ($array_agenda) {
 				//Convierte el array asociativo en una cadena de caracteres cada elemento separado por ;
 				foreach($array_agenda as $key_nombre => $value)
@@ -29,18 +27,13 @@
 				$string_agenda=substr($string_agenda, 0, -1);
 				return $string_agenda;
 			}
-
 		?>
 		<?php
 		//Creamos un array para almacenar los datos de la agenda
-		$array_agenda=array();
-
+		$array_agenda=array( "asier"=>"asier@asier.com", "joni"=>"joni@joni.com");
 		if (isset ($_POST['submit'])) {
 			//Rellenamos el array con los datos recibidos en el campo oculto 'agenda' del formulario
 			stringtoarray ($_POST['agenda'],$array_agenda);
-
-
-
 			// REALIZAR COMPROBACIONES NECESARIAS
 
 		}
@@ -63,7 +56,13 @@
 		    <th>Email</th>
 		  </tr>
 		  	<?php
+
 		  		// recorremos el array y mostramos los contactos
+		  	foreach($array_agenda as $nombre=>$email){
+				echo "<th> " . $nombre . "  " . $email . "\n";
+				echo "</th><br>";
+			}
+
 			?>
 		</table>
 
